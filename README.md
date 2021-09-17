@@ -6,7 +6,7 @@ This repository implements Image Quantization and Histogram Specification image 
 
 Only instructions for Linux provided.
 
-## Building the projects
+## Building
 
 Q2 and Q4 may be build using Cmake, or the provided makefile.
 
@@ -16,7 +16,7 @@ Create a build directory (recommended) in the project folder.
 
 ```bash
 mkdir build
-cd build
+cd build/
 cmake ..
 make all
 ```
@@ -26,7 +26,7 @@ make all
 In the newly-created build directory:
 
 ```bash
-./CS474 <image_directory>
+./CS474 -image image_directory
 ```
 
-Replace `<image_directory>` with the path to the desired .PGM image you wish to convert.
+Replace `image_directory` with the path to the desired .PGM image you wish to convert.
