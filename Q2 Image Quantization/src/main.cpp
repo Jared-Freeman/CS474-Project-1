@@ -12,6 +12,10 @@
 #include <string>
 #include <fstream>
 
+#include "image.h"
+#include "WriteImage.h"
+#include "ReadImage.h"
+
 #include "freeman_arg_parse.h" //A small utility I wrote for extracting command line args.
 
 void ProcessImage(std::string path);
@@ -27,7 +31,8 @@ int main(int argc, char** argv)
   }
   
 	//Extract image paths
-  std::vector<std::string> imagePaths = ExtractArgs("-image", args);
+  std::vector<std::string> imagePaths = ExtractArgs("-in", args);
+  std::vector<std::string> outputPaths = ExtractArgs("-out", args);
   
   //Discard any malformed paths and inform user (possibly when iterating)
   

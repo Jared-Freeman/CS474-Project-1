@@ -22,8 +22,14 @@ INCLUDES=-I../include
 
 all: $(O_FILES)
 	$(CC) $(CXXFLAGS) -o CS474 $(O_FILES) $(LIBS)
+	
+image.o: ../src/image.cpp
+	$(CC) $(CXXFLAGS) -c ../src/image.cpp -o image.o $(INCLUDES)
+	
 main.o: ../src/main.cpp
 	$(CC) $(CXXFLAGS) -c ../src/main.cpp -o main.o $(INCLUDES)
+	
+	
 
 
 clean:

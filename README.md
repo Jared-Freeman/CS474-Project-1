@@ -26,7 +26,10 @@ make all
 In the newly-created build directory:
 
 ```bash
-./CS474 -image image_directory
+./CS474 -in image_directory -out output_directory
 ```
 
-Replace `image_directory` with the path to the desired .PGM image you wish to convert.
+- Replace `image_directory` with the path to the desired .PGM image you wish to convert. Multiple input images may be specified.
+
+- Replace `output_directory` with the desired output directory. New files will be automatically named, and placed there. Only the first output directory will be considered as of now.
+
