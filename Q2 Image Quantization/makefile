@@ -14,7 +14,7 @@ endif
 CXXFLAGS=-g -Wall -std=c++0x
 
 # .o Compilation
-O_FILES=main.o camera.o engine.o graphics.o object.o shader.o window.o
+O_FILES=main.o image.o
 
 # Point to includes of local directories
 INCLUDES=-I../include

@@ -34,6 +34,18 @@ int main(int argc, char** argv)
 	//Storage
   std::vector<std::string> imagePaths = ExtractArgs("-in", args);
   std::vector<std::string> outputPaths = ExtractArgs("-out", args);
+  if(outputPaths.size() > 0)
+  {
+    if(outputPaths[0][outputPaths[0].length()] != '/')
+      {
+        outputPaths[0] = outputPaths[0] + "/";
+        //std::cout << outputPaths[0] << "\n";
+      }
+  }
+  if(outputPaths.size() > 1)
+  {
+    std::cout << "Can only specify one output path. All files will be saved in the first output directory.\n";
+  }
     
   //Process each image
   for(int i=0; i < imagePaths.size(); i++)
@@ -57,7 +69,19 @@ int main(int argc, char** argv)
       ImageType image_copy(next_image);
       QuantizeImage(image_copy, k);
 
-      std::string out_file = imagePaths[i] + "_L_" + std::to_string(k) + ".pgm";
+      //determine original file name from path string
+      std::string original_filename = "";
+      for(int l = imagePaths[i].length(); imagePaths[i][l] != '/' && l >= 0; l--)
+      {
+        if(imagePaths[i][l] != '/')
+        {
+          std::string temp;
+          temp += imagePaths[i][l];
+          original_filename.insert(0, temp);
+        }
+      }
+
+      std::string out_file = outputPaths[0] + original_filename + "_L_" + std::to_string(k) + ".pgm";
       char *cstr = new char[out_file.length() + 1];
       strcpy(cstr, out_file.c_str());
 
