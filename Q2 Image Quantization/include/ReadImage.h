@@ -26,7 +26,9 @@ int readImage(char fname[], ImageType& image)
  }
 
  // read header
-
+ //cout << "header\n";
+ 
+ 
  ifp.getline(header,100,'\n');
  if ( (header[0]!=80) ||    /* 'P' */
       (header[1]!=53) ) {   /* '5' */
@@ -58,15 +60,29 @@ ifp.getline(header,100,'\n');
  //
  // Convert the unsigned characters to integers
  //
+ 
+ //cout << "uc to i\n";
 
  int val;
+
+ ImageType temp_img(N, M, Q);
 
  for(i=0; i<N; i++)
    for(j=0; j<M; j++) {
      val = (int)charImage[i*M+j];
-     image.setPixelVal(i, j, val);     
+     temp_img.setPixelVal(i, j, val);  
+     
+     //int b;
+     //temp_img.getPixelVal(i, j, b);
+     //cout << b << " ";   
    }
+   //cout << endl;
 
+ image.CopyImageData(temp_img);
+ 
+ //cout << "deletion\n";
+ 
+ 
  delete [] charImage;
 
  return (1);
