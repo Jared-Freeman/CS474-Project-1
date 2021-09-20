@@ -287,44 +287,4 @@ void SpecifyHistogram(ImageType& image, ImageType& histogram_reference)
   
 }
 
-/*
-void ImageType::histoEqual()
-{
-    std::map<int, float> histogram; // key is pixel value, value is freq
-    float norm = N * M;
-    int maxPixelValue = 0;
-
-    // Build histogram
-    for (int i = 0; i < N; ++i)
-    {
-        for (int j = 0; j < M; ++j)
-        {
-            if (pixelValue[i][j] > maxPixelValue)
-                maxPixelValue = pixelValue[i][j];
-            histogram[pixelValue[i][j]]++;
-        }
-    }
-
-    // Normalize
-    for (auto iter : histogram)
-    {
-        histogram[iter.first] = float(iter.second / norm);
-        std::cout << iter.first << "\t" << iter.second << "\n";
-    }
-    std::cout << "\n\n";
-
-    float cumulProb = 0.0;
-
-    int pixel = 0;
-
-    // Apply transformation
-    for (int i = 0; i < N; ++i)
-    {   
-        for (int j = 0; j < M; ++j)
-        {
-            getPixelVal(i, j, pixel);
-            setPixelVal(i, j, histogram[pixel]);
-        }
-    }
-}*/
 
