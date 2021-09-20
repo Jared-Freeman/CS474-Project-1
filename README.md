@@ -34,7 +34,7 @@ In the newly-created build directory:
 - Replace `output_directory` with the desired output directory. New files will be automatically named, and placed there. Only the first output directory will be considered as of now. Specifying no output will place the files in the directory with the program.
 
 
-## Running Q2
+## Running Q4
 
 In the newly-created build directory:
 
