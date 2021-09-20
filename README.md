@@ -8,7 +8,7 @@ Only instructions for Linux provided.
 
 ## Building
 
-Q2 and Q4 may be build using Cmake, or the provided makefile.
+Q2 and Q4 may be built using Cmake, or the provided makefile.
 
 ### Build Using Cmake:
 

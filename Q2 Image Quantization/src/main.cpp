@@ -34,9 +34,9 @@ int main(int argc, char** argv)
 	//Storage
   std::vector<std::string> imagePaths = ExtractArgs("-in", args);
   std::vector<std::string> outputPaths = ExtractArgs("-out", args);
-  if(outputPaths.size() > 0)
+  if(outputPaths.size() > 0 && outputPaths[0].length() > 0)
   {
-    if(outputPaths[0][outputPaths[0].length()] != '/')
+    if(outputPaths[0][outputPaths[0].length()-1] != '/')
       {
         outputPaths[0] = outputPaths[0] + "/";
         //std::cout << outputPaths[0] << "\n";
@@ -69,15 +69,24 @@ int main(int argc, char** argv)
       ImageType image_copy(next_image);
       QuantizeImage(image_copy, k);
 
+      //std::cout << imagePaths[i] << ", " << outputPaths[0] << std::endl;
+
       //determine original file name from path string
       std::string original_filename = "";
       for(int l = imagePaths[i].length(); imagePaths[i][l] != '/' && l >= 0; l--)
       {
         if(imagePaths[i][l] != '/')
         {
+          //std::cout << imagePaths[i][l] << std::endl;
+
           std::string temp;
           temp += imagePaths[i][l];
           original_filename.insert(0, temp);
+        }
+        //throw out extension
+        if(imagePaths[i][l] == '.')
+        {
+          original_filename = "";
         }
       }
 
