@@ -1,6 +1,6 @@
  /*
   * @description: 
-  * This program implements altering image quantization on the supplied .PGM image.
+  * This program implements histogram specification on the supplied .PGM image.
   *
   * @author: 
   * Jared Freeman
